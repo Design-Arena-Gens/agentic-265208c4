@@ -1,0 +1,283 @@
+:root {
+  color-scheme: light;
+  --bg: #f9f5f2;
+  --fg: #1f1c18;
+  --accent: #f7a072;
+  --accent-strong: #f25f5c;
+  --secondary: #3066be;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-plus-jakarta-sans, "Plus Jakarta Sans", sans-serif);
+  background: radial-gradient(circle at 20% 20%, #ffe7d6 0, #f8f0e6 45%, var(--bg) 100%);
+  color: var(--fg);
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 4rem 1.5rem;
+}
+
+.hero {
+  width: min(1100px, 100%);
+  display: grid;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .hero {
+    grid-template-columns: minmax(320px, 1fr) minmax(360px, 1fr);
+  }
+}
+
+.hero__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hero__aurora {
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 230, 200, 0.45), transparent 60%),
+    radial-gradient(circle at 70% 80%, rgba(255, 183, 197, 0.35), transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(255, 214, 153, 0.4), transparent 70%);
+  filter: blur(40px);
+  z-index: -2;
+}
+
+.hero__flare {
+  position: absolute;
+  inset: auto 10% -12% auto;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 160, 0.7), rgba(255, 215, 160, 0));
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.portrait {
+  position: relative;
+  width: min(360px, 72vw);
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(160deg, rgba(255, 200, 155, 0.75), rgba(255, 255, 255, 0.9));
+  border-radius: 32px;
+  box-shadow:
+    0 32px 60px rgba(48, 102, 190, 0.25),
+    0 12px 24px rgba(242, 95, 92, 0.18);
+  overflow: hidden;
+}
+
+.portrait__backlight {
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(circle at 50% 80%, rgba(242, 204, 143, 0.8), rgba(242, 204, 143, 0));
+}
+
+.portrait__hair {
+  position: absolute;
+  inset: 12% 18% 42%;
+  background: radial-gradient(circle at 30% 20%, #5b2c27 0, #913c32 55%, rgba(102, 42, 34, 0.9) 80%);
+  border-radius: 50% 50% 45% 55%;
+  filter: drop-shadow(0 18px 24px rgba(94, 38, 32, 0.35));
+}
+
+.portrait__face {
+  position: absolute;
+  inset: 22% 30% 45%;
+  background: radial-gradient(circle at 50% 30%, #ffe6d3 0, #f6cdb2 75%);
+  border-radius: 48% 52% 56% 44% / 58% 62% 38% 42%;
+}
+
+.portrait__cheek {
+  position: absolute;
+  inset: 38% 35% 48%;
+  background: radial-gradient(circle, rgba(255, 156, 142, 0.6) 0, rgba(255, 156, 142, 0));
+  border-radius: 50%;
+  transform: translateX(14%);
+}
+
+.portrait__nose {
+  position: absolute;
+  inset: 36% 46% 46%;
+  width: 12%;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(209, 132, 101, 0.1), rgba(209, 132, 101, 0.45));
+  border-radius: 50% 50% 40% 40%;
+  transform: translateX(-50%);
+}
+
+.portrait__brow {
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  width: 32%;
+  height: 6%;
+  background: linear-gradient(90deg, rgba(83, 37, 33, 0.85), rgba(83, 37, 33, 0.45));
+  border-radius: 40% 60% 50% 50%;
+  transform: rotate(-5deg);
+}
+
+.portrait__eye {
+  position: absolute;
+  top: 36%;
+  width: 16%;
+  height: 6%;
+  background: radial-gradient(circle at 50% 40%, #fff 0, #e4f0ff 45%, #6a7ba3 46%, #1f2a44 70%);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.portrait__eye::after {
+  content: "";
+  position: absolute;
+  inset: 30% 35% 15%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0));
+  border-radius: 50%;
+}
+
+.portrait__eye--left {
+  left: 40%;
+  transform: rotate(-2deg);
+}
+
+.portrait__eye--right {
+  right: 28%;
+  transform: rotate(3deg);
+}
+
+.portrait__lip {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 28%;
+  height: 7%;
+  background: radial-gradient(circle at 50% 50%, #d97771 0, #c96166 55%, rgba(217, 119, 113, 0));
+  border-radius: 50% 50% 60% 60%;
+  transform: translateX(-50%);
+}
+
+.portrait__neck {
+  position: absolute;
+  inset: 58% 40% 24%;
+  background: linear-gradient(180deg, #f7c4a4, #e5a989 75%);
+  border-radius: 36% / 30%;
+}
+
+.portrait__shirt {
+  position: absolute;
+  inset: 72% 12% 0;
+  background: linear-gradient(170deg, rgba(255, 255, 255, 0.95), rgba(226, 238, 255, 0.8));
+  border-radius: 60% 60% 6% 6% / 40% 40% 100% 100%;
+  box-shadow: 0 -12px 24px rgba(255, 255, 255, 0.6);
+}
+
+.hero__content {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 215, 175, 0.45);
+  color: var(--accent-strong);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  width: fit-content;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 3vw + 1rem, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(31, 28, 24, 0.82);
+}
+
+.hero__highlights {
+  display: grid;
+  gap: 1rem;
+  margin: 0;
+}
+
+.hero__highlights div {
+  display: grid;
+  gap: 0.2rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(48, 102, 190, 0.2);
+}
+
+.hero__highlights dt {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(31, 28, 24, 0.55);
+}
+
+.hero__highlights dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.hero__mood {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(242, 95, 92, 0.18);
+  box-shadow: 0 12px 30px rgba(48, 102, 190, 0.12);
+}
+
+.hero__mood h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(48, 102, 190, 0.75);
+}
+
+.hero__mood ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: rgba(31, 28, 24, 0.78);
+}
+
+@media (max-width: 959px) {
+  .hero__visual {
+    order: 2;
+  }
+
+  .hero__content {
+    order: 1;
+  }
+}
